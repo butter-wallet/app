@@ -1,7 +1,9 @@
-import { StrictMode } from 'react'
+import  { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { createRouter } from '@tanstack/react-router'
+import ChatBot from './components/ui/chatbot'
 import "./index.css"
+
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
