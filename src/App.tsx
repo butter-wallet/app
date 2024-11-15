@@ -21,11 +21,13 @@ function InnerApp() {
 	);
 }
 
+const DYNAMIC_ENVIRONMENT_ID = import.meta.env.VITE_DYNAMIC_ENVIRONMENT_ID;
+
 export function App() {
 	return (
 		<DynamicContextProvider
 			settings={{
-				environmentId: "b8dd6091-f692-4489-afcc-90857d949509",
+				environmentId: DYNAMIC_ENVIRONMENT_ID,
 			}}
 		>
 			<InnerApp />
