@@ -1,9 +1,11 @@
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import {
 	DynamicContextProvider,
+	useDynamicContext,
 	useIsLoggedIn,
 } from "@dynamic-labs/sdk-react-core";
 import { routeTree } from "./routeTree.gen";
+import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 
 // Set up a Router instance
 const router = createRouter({
@@ -15,9 +17,15 @@ const router = createRouter({
 });
 
 function InnerApp() {
+	const { sdkHasLoaded } = useDynamicContext();
 	const isAuthenticated = useIsLoggedIn();
+
+	console.log({ sdkHasLoaded, isAuthenticated });
 	return (
-		<RouterProvider router={router} context={{ auth: { isAuthenticated } }} />
+		<RouterProvider
+			router={router}
+			context={{ auth: { isLoaded: sdkHasLoaded, isAuthenticated } }}
+		/>
 	);
 }
 
@@ -26,6 +34,7 @@ export function App() {
 		<DynamicContextProvider
 			settings={{
 				environmentId: "b8dd6091-f692-4489-afcc-90857d949509",
+				walletConnectors: [EthereumWalletConnectors],
 			}}
 		>
 			<InnerApp />
