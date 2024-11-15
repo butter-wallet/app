@@ -6,6 +6,8 @@ import {
 import { routeTree } from "./routeTree.gen";
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 import { SWRConfig } from "swr";
+import ChatBot from './components/ui/chatbot'
+
 
 // Set up a Router instance
 const router = createRouter({
@@ -39,6 +41,8 @@ export function App() {
 			>
 				<InnerApp />
 			</DynamicContextProvider>
+			<ChatBot />
+
 		</SWRConfig>
 	);
 }
