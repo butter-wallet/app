@@ -80,8 +80,7 @@ const ChatBot = () => {
             <div className="relative w-8 h-8">
                 <div className="w-full h-full bg-yellow-300 ">
                     <div className="absolute top-2 left-1.5 w-1 h-1 bg-black rounded-full" />
-                    <div className={`absolute top-2 right-1.5 w-1 h-1 bg-black rounded-full transition-all duration-200 ${isWinking ? 'h-[0.5px] top-2.5' : ''
-                        }`} />
+                    <div className={`absolute top-2 right-1.5 w-1 h-1 bg-black rounded-full transition-all duration-200 ${isWinking ? 'h-[0.5px] top-2.5' : ''}`} />
                     <div className="absolute top-3 left-1 w-1.5 h-1 bg-pink-200 rounded-full opacity-70" />
                     <div className="absolute top-3 right-1 w-1.5 h-1 bg-pink-200 rounded-full opacity-70" />
                     <div
@@ -120,17 +119,22 @@ const ChatBot = () => {
                         className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
                         <div
-                            className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user' ? 'bg-yellow-300 text-black' : 'bg-yellow-100'
-                                }`}
+                            className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user' ? 'bg-yellow-300 text-black' : 'bg-yellow-100'}`}
                         >
                             {message.content}
                         </div>
                     </div>
                 ))}
                 {isLoading && (
+
+
                     <div className="flex justify-start">
-                        <div className="bg-yellow-100 p-3 rounded-lg">
-                            Thinking...
+                        <div className="bg-yellow-100 rounded-lg px-4 py-2">
+                            <div className="flex space-x-2">
+                                <div className="w-1 h-1 bg-gray-400 rounded-full animate-bounce"></div>
+                                <div className="w-1 h-1 bg-gray-400 rounded-full animate-bounce delay-100"></div>
+                                <div className="w-1 h-1 bg-gray-400 rounded-full animate-bounce delay-200"></div>
+                            </div>
                         </div>
                     </div>
                 )}
@@ -161,7 +165,7 @@ const ChatBot = () => {
     );
 
     return (
-        <div className="fixed bottom-4 right-4 z-50">
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
             {isOpen ? chatWindow : <ButterChatButton onClick={() => setIsOpen(true)} />}
         </div>
     );
