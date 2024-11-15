@@ -1,6 +1,7 @@
-import React, { StrictMode } from 'react'
+import  { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import ChatBot from './components/ui/chatbot'
 import "./index.css"
 
 // Import the generated route tree
@@ -23,6 +24,7 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <RouterProvider router={router} />
+      <ChatBot />
     </StrictMode>,
   )
 }
