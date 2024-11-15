@@ -1,13 +1,26 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { Balance } from "@/components/Balance";
+import { WalletAddress } from "@/components/WalletAddress";
+import { KlasterProvider } from "@/providers/SmartAccountProvider";
+import { useIsLoggedIn } from "@dynamic-labs/sdk-react-core";
+import { createLazyFileRoute, Navigate } from "@tanstack/react-router";
+import { base } from "viem/chains";
 
-export const Route = createLazyFileRoute('/')({
-  component: Index,
-})
+export const Route = createLazyFileRoute("/")({
+	component: Index,
+});
 
 function Index() {
-  return (
-    <div className="p-2">
-      <h3>Welcome Home!</h3>
-    </div>
-  )
+	const isAuthenticated = useIsLoggedIn();
+	if (!isAuthenticated) {
+		return <Navigate to="/login" />;
+	}
+
+	return (
+		<KlasterProvider>
+			<div className="p-2">
+				<WalletAddress chainId={base.id} />
+				<Balance />
+			</div>
+		</KlasterProvider>
+	);
 }
