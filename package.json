@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dynamic-labs/ethereum": "^3.6.2",
+    "@dynamic-labs/sdk-react-core": "^3.6.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@tanstack/react-router": "^1.81.9",
     "autoprefixer": "^10.4.20",
@@ -21,7 +23,8 @@
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.4",
     "tailwindcss": "^3.4.15",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "viem": "^2.21.45"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
