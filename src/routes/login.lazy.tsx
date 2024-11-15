@@ -1,6 +1,5 @@
 import {
   DynamicWidget,
-  useDynamicContext,
   useIsLoggedIn,
 } from '@dynamic-labs/sdk-react-core'
 import { createLazyFileRoute, Navigate } from '@tanstack/react-router'
@@ -10,10 +9,8 @@ export const Route = createLazyFileRoute('/login')({
 })
 
 function Login() {
-  const { sdkHasLoaded } = useDynamicContext()
   const isAuthenticated = useIsLoggedIn()
-
-  if (sdkHasLoaded && isAuthenticated) {
+  if (isAuthenticated) {
     return <Navigate to="/" />
   }
 

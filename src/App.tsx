@@ -18,13 +18,14 @@ const router = createRouter({
 
 function InnerApp() {
 	const { sdkHasLoaded } = useDynamicContext();
-	const isAuthenticated = useIsLoggedIn();
+	
+    if (!sdkHasLoaded) {
+        return null
+    }
 
-	console.log({ sdkHasLoaded, isAuthenticated });
 	return (
 		<RouterProvider
 			router={router}
-			context={{ auth: { isLoaded: sdkHasLoaded, isAuthenticated } }}
 		/>
 	);
 }

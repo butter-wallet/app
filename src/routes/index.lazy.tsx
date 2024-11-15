@@ -10,11 +10,9 @@ export const Route = createLazyFileRoute('/')({
 })
 
 function Index() {
-  const { sdkHasLoaded } = useDynamicContext()
   const isAuthenticated = useIsLoggedIn()
-
-  if (sdkHasLoaded && isAuthenticated) {
-    return <Navigate to="/" />
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />
   }
 
   return (
