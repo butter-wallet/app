@@ -20,7 +20,10 @@ export const useTransactions = ({ operations }: InitParams) => {
 	}
 
 	if (!chainId) {
-		throw new Error("No way to pay fees");
+		return {
+			isLoading: false,
+			execute: () => {},
+		};
 	}
 
 	async function execute() {
