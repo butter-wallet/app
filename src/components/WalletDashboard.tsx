@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import TopUpDrawerContent from './TopUpDrawerContent';
 import { Balance } from "./Balance";
 import { WalletAddress } from "./WalletAddress";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
@@ -27,7 +28,7 @@ const WalletDashboard = () => {
       <div className="w-full space-y-4 max-w-md">
         <Drawer>
           <DrawerTrigger asChild>
-            <Button 
+            <Button
               className="w-full h-12 text-lg"
               size="lg"
             >
@@ -40,15 +41,22 @@ const WalletDashboard = () => {
           </DrawerContent>
         </Drawer>
 
-        <Button 
-          className="w-full h-12 text-lg"
-          size="lg"
-        >
-          <Wallet className="w-5 h-5 mr-2" />
-          Top-up / Receive
-        </Button>
+        <Drawer>
+          <DrawerTrigger asChild>
+            <Button
+              className="w-full h-12 text-lg"
+              size="lg"
+            >
+              <Wallet className="w-5 h-5 mr-2" />
+              Top-up / Receive
+            </Button>
+          </DrawerTrigger>
+          <DrawerContent>
+            <TopUpDrawerContent />
+          </DrawerContent>
+        </Drawer>
 
-        <Button 
+        <Button
           className="w-full h-12 text-lg"
           size="lg"
         >
@@ -56,7 +64,7 @@ const WalletDashboard = () => {
           Invest
         </Button>
       </div>
-     
+
     </div>
   );
 };
