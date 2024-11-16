@@ -1,11 +1,11 @@
 import { useUnifedBalance } from "@/hooks/useUnifiedBalance";
-import { SupportedTokens, tokenMappings } from "@/lib/klaster";
+import { SupportedToken, tokenMappings } from "@/lib/klaster";
 import { formatUnits } from "viem";
 
 export const Balance = () => {
 	const balance = useUnifedBalance(
-		SupportedTokens.USDC,
-		tokenMappings[SupportedTokens.USDC].addresses,
+		SupportedToken.USDC,
+		tokenMappings[SupportedToken.USDC].addresses,
 	);
 
 	return (
