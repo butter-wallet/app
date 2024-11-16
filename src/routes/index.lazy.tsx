@@ -1,5 +1,5 @@
 import { Balance } from "@/components/Balance";
-import { Send } from "@/components/Send";
+import Send from "@/components/Send";
 import { WalletAddress } from "@/components/WalletAddress";
 import { KlasterProvider } from "@/providers/SmartAccountProvider";
 import { useIsLoggedIn } from "@dynamic-labs/sdk-react-core";
