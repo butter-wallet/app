@@ -1,5 +1,5 @@
 import { SupportedToken, tokenMappings } from "@/lib/klaster";
-import { useUnifedBalance } from "./useUnifiedBalance";
+import { useUnifiedBalance } from "./useUnifiedBalance";
 import { useMemo } from "react";
 import type { UnifiedBalanceResult } from "klaster-sdk";
 
@@ -24,7 +24,7 @@ function findChainWithLargestBalance(
 }
 
 export const useFees = () => {
-	const usdcBalance = useUnifedBalance(
+	const usdcBalance = useUnifiedBalance(
 		SupportedToken.USDC,
 		tokenMappings[SupportedToken.USDC].addresses,
 	);
